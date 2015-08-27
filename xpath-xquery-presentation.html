@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# XQuery - a primer for the ignorant
+
+	or ... how I learnt to stop worrying, and learn to love markup query syntax
+
+@IanMulvany - 2015-08-26
+
+---
+
+- XPath and XQuery are technologies that can be used to preform structured queries and operations over XML documents.
+- They are both W3C specifications (think incomprehensible but comprehensive documentation and good vendor support).
+- XPath expressions are single line queries that are often run over a single document to extract a specific item, or item set, from an XML document (think regex).
+- XQuery is an entire query language, that incorporates XPath, but also includes the facility to write scripts, modify documents, or join results from queries over multiple documents (think SQL).
+
+---
+
+# Micro XPath tutorial
+
+We are going to learn how to run xpath queries from the command line, and we are going to run through a couple of trivial examples against a sample douument.
+
+## instal tools
+
+using homebrew we can install `xmllib2` which will provide the `xmlllint` command line tool which can be used to run XPath queries against a document from the commend line.
+
+``` terminal
+$ brew install xmllib2
+```
+
+``` terminal
+$ xmllint -version
+  xmllint: using libxml version 20900 ... 
+```
+
+---
+
+# Our sample document
+
+We are going to run some of our XPath queries against this sample doucment.
+
+```xml
+<article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article" dtd-version="1.1d1">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">elife</journal-id>
+      <journal-id journal-id-type="hwp">eLife</journal-id>
+      <journal-id journal-id-type="publisher-id">eLife</journal-id>
+      <journal-title-group>
+        <journal-title>eLife</journal-title>
+      </journal-title-group>
+      <issn publication-format="electronic">2050-084X</issn>
+      <publisher>
+        <publisher-name>eLife Sciences Publications, Ltd</publisher-name>
+      </publisher>
+    </journal-meta>
+	</front>
+</article>
+```
+
+---
+
+# Resources
+
+XPath tutorial - http://zvon.org/comp/r/tut-XPath_1.html
+- Balisage talk on XQuery
+- XPath W3C specification
+- XQuery W3C specification
+- XBase documentation
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script><div id="slideshow"></div>
+    <div id="overlay"></div>
+
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="terminal.language.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        highlightStyle: 'solarized_dark'
+      });
+      // extract the embedded styling from ansi spans
+      $('code.terminal > span.hljs-ansi').replaceWith(function(i, x) {
+        return x.replace(/&lt;(\/?(\w+).*?)&gt;/g, '<$1>')
+      });
+    </script>
+
+  </body>
+</html>
